@@ -1,0 +1,90 @@
+coordinates = {"x": 0, "y": 0}
+
+while True:
+    command = input()
+    if "#" in command:
+        break
+    if "right" in command:
+        if command != "move_right()":
+            coordinates["x"] += int(command[11:-1])
+        else:
+            coordinates["x"] += 1
+    elif "left" in command:
+        if command != "move_left()":
+            coordinates["x"] += int(command[9:-1])
+        else:
+            coordinates["x"] -= 1
+    elif "up" in command:
+        if command != "move_up()":
+            coordinates["y"] += int(command[7:-1])
+        else:
+            coordinates["y"] += 1
+    elif "down" in command:
+        if command != "move_down()":
+            coordinates["y"] -= int(command[9:-1])
+        else:
+            coordinates["y"] -= 1
+    elif "for" in command:
+        number = int(command[15:-2])
+        print(number)
+        while True:
+            command_inner = input()
+            if command_inner[0] == " ":
+                if "right" in command_inner:
+                    if command_inner != "move_right()":
+                        try:
+                            coordinates["x"] += int(command_inner[15:-1]) * number
+                        except ValueError:
+                            coordinates["x"] == coordinates["x"]
+                    else:
+                        coordinates["x"] += number
+                elif "left" in command_inner:
+                    if command_inner != "move_left()":
+                        try:
+                            coordinates["x"] -= int(command_inner[14:-1]) * number
+                        except ValueError:
+                            coordinates["x"] == coordinates["x"]
+                    else:
+                        coordinates["x"] -= number
+                elif "up" in command_inner:
+                    if command_inner != "move_up()":
+                        try:
+                            coordinates["y"] += int(command_inner[12:-1]) * number
+                        except ValueError:
+                            coordinates["y"] == coordinates["y"]
+                    else:
+                        coordinates["y"] += number
+                elif "down" in command_inner:
+                    if command_inner != "move_down()":
+                        try:
+                            coordinates["y"] -= int(command_inner[14:-1]) * number
+                        except ValueError:
+                            coordinates["y"] == coordinates["y"]
+                    else:
+                        coordinates["y"] -= number
+                print(coordinates.values())
+            else:
+                if "right" in command_inner:
+                    if command_inner != "move_right()":
+                        coordinates["x"] += int(command_inner[11:-1])
+                    else:
+                        coordinates["x"] += 1
+                elif "left" in command_inner:
+                    if command_inner != "move_left()":
+                        coordinates["x"] += int(command_inner[10:-1])
+                    else:
+                        coordinates["x"] -= 1
+                elif "up" in command_inner:
+                    if command_inner != "move_up()":
+                        coordinates["y"] += int(command_inner[8:-1])
+                    else:
+                        coordinates["y"] += 1
+                elif "down" in command_inner:
+                    if command_inner != "move_down()":
+                        coordinates["y"] -= int(command_inner[10:-1])
+                    else:
+                        coordinates["y"] -= 1
+                break
+    print(coordinates.values())
+
+print(coordinates.values())
